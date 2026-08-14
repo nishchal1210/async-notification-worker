@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+SQLAlchemy
+psycopg2-binary
+pika
+redis
+python-dotenv
+prometheus-client
+Jinja2
+firebase-admin
+email-validator
+requests
+pytest

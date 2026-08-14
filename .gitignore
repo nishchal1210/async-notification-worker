@@ -1,0 +1,48 @@
+# Secrets / environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and local runtime artifacts
+*.log
+*.pid
+
+# Load-test output
+*_stats.csv
+*_stats_history.csv
+*_failures.csv
+*_exceptions.csv
+locust_results/
+
+# Local binaries / downloaded tooling
+prometheus.exe
+prometheus-*/
+grafana-*/
+
+# Local monitoring data
+prometheus-data/
+grafana-data/
+
+# Local query/cache files
+data/

@@ -1,0 +1,14 @@
+.env
+.git
+.gitignore
+__pycache__
+*.pyc
+.pytest_cache
+.venv
+venv
+locust_results
+*.csv
+*.log
+grafana-data
+prometheus-data
+data
