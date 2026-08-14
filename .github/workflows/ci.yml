@@ -13,6 +13,37 @@ jobs:
   test-and-build:
     runs-on: ubuntu-latest
 
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
+
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U test -d testdb"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      REDIS_URL: redis://localhost:6379/0
+      DATABASE_URL: postgresql://test:test@localhost:5432/testdb
+      RABBITMQ_URL: amqp://guest:guest@localhost:5672/
+      LOAD_TEST_MODE: "false"
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,9 +60,7 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: |
-          pytest -q
+        run: pytest -q
 
       - name: Build Docker image
-        run: |
-          docker build -t notification-engine .
+        run: docker build -t notification-engine .
