@@ -1,5 +1,7 @@
 # High-Throughput Real-Time Notification Engine
 
+[![CI](https://github.com/nishchal1210/async-notification-worker/actions/workflows/ci.yml/badge.svg)](https://github.com/nishchal1210/async-notification-worker/actions/workflows/ci.yml)
+
 A production-oriented asynchronous notification backend built with **FastAPI, PostgreSQL, Redis, RabbitMQ, Prometheus, Grafana, Docker Compose, and Locust**.
 
 The system accepts notification requests through a FastAPI API, persists them in PostgreSQL, publishes delivery jobs to RabbitMQ, and processes them asynchronously through horizontally scalable workers. It includes idempotency, rate limiting, priority queues, retry/backoff, dead-letter handling, templating, structured logging, health checks, graceful shutdown, and observability.
