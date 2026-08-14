@@ -40,8 +40,8 @@ jobs:
 
     env:
       REDIS_URL: redis://localhost:6379/0
-      DATABASE_URL: postgresql://test:test@localhost:5432/testdb
       RABBITMQ_URL: amqp://guest:guest@localhost:5672/
+      DATABASE_URL: postgresql://test:test@localhost:5432/testdb
       LOAD_TEST_MODE: "false"
 
     steps:
@@ -58,6 +58,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
+
+      - name: Show test environment
+        run: |
+          echo "REDIS_URL is set: ${{ env.REDIS_URL }}"
+          echo "RABBITMQ_URL is set: ${{ env.RABBITMQ_URL }}"
 
       - name: Run tests
         run: pytest -q
