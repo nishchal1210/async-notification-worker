@@ -11,3 +11,4 @@ firebase-admin
 email-validator
 requests
 pytest
+psycopg[binary]
