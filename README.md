@@ -689,6 +689,4 @@ This project is intentionally broader than a CRUD API. It demonstrates:
 
 ---
 
-## License
 
-Add a license before accepting outside contributions. MIT is a common choice for portfolio projects.
